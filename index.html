@@ -189,7 +189,7 @@
         
         <div class="audio-player-container" style="max-width: 80%; margin: 0 auto; padding: 1px; background-color: #f4f4f9; border-radius: 50px;">
           <audio id="audioPlayer1" controls style="width: 100%; border-radius: 8px;">
-            <source id="audioSource1" src="static/audios/sample1/ambisonics.wav" type="audio/wav">
+            <source id="audioSource1" src="static/audios/Ambisonics_2h/01.wav" type="audio/wav">
           </audio>
         </div>
       </div>
@@ -208,7 +208,7 @@
 
         <div class="audio-player-container" style="max-width: 80%; margin: 0 auto; padding: 1px; background-color: #f4f4f9; border-radius: 50px;">
           <audio id="audioPlayer2" controls style="width: 100%; border-radius: 8px;">
-            <source id="audioSource2" src="static/audios/sample2/ambisonics.wav" type="audio/wav">
+            <source id="audioSource2" src="static/audios/Ambisonics_2h/02.wav" type="audio/wav">
           </audio>
         </div>
       </div>
@@ -227,7 +227,7 @@
 
         <div class="audio-player-container" style="max-width: 80%; margin: 0 auto; padding: 1px; background-color: #f4f4f9; border-radius: 50px;">
           <audio id="audioPlayer3" controls style="width: 100%; border-radius: 8px;">
-            <source id="audioSource3" src="static/audios/sample3/ambisonics.wav" type="audio/wav">
+            <source id="audioSource3" src="static/audios/Ambisonics_2h/03.wav" type="audio/wav">
           </audio>
         </div>
       </div>
@@ -246,7 +246,7 @@
 
         <div class="audio-player-container" style="max-width: 80%; margin: 0 auto; padding: 1px; background-color: #f4f4f9; border-radius: 50px;">
           <audio id="audioPlayer4" controls style="width: 100%; border-radius: 8px;">
-            <source id="audioSource4" src="static/audios/sample4/ambisonics.wav" type="audio/wav">
+            <source id="audioSource4" src="static/audios/Ambisonics_2h/04.wav" type="audio/wav">
           </audio>
         </div>
       </div>
@@ -266,7 +266,7 @@
 
         <div class="audio-player-container" style="max-width: 80%; margin: 0 auto; padding: 1px; background-color: #f4f4f9; border-radius: 50px;">
           <audio id="audioPlayer5" controls style="width: 100%; border-radius: 8px;">
-            <source id="audioSource5" src="static/audios/sample5/ambisonics.wav" type="audio/wav">
+            <source id="audioSource5" src="static/audios/Ambisonics_2h/05.wav" type="audio/wav">
           </audio>
         </div>
       </div>
@@ -280,11 +280,11 @@
 <script>
   // List of audio file paths for each sample
   var audioFiles = [
-    ['static/audios/sample1/ambisonics.wav','static/audios/sample1/gt.wav', 'static/audios/sample1/MagLS.wav', 'static/audios/sample1/SCGAD.wav', 'static/audios/sample1/A2B.wav', 'static/audios/sample1/CSMTFNet.wav'], // Sample 1
-    ['static/audios/sample2/ambisonics.wav','static/audios/sample2/gt.wav', 'static/audios/sample2/MagLS.wav', 'static/audios/sample2/SCGAD.wav', 'static/audios/sample2/A2B.wav', 'static/audios/sample2/CSMTFNet.wav'], // Sample 2
-    ['static/audios/sample3/ambisonics.wav','static/audios/sample3/gt.wav', 'static/audios/sample3/MagLS.wav', 'static/audios/sample3/SCGAD.wav', 'static/audios/sample3/A2B.wav', 'static/audios/sample3/CSMTFNet.wav'], // Sample 3
-    ['static/audios/sample4/ambisonics.wav','static/audios/sample4/gt.wav', 'static/audios/sample4/MagLS.wav', 'static/audios/sample4/SCGAD.wav', 'static/audios/sample4/A2B.wav', 'static/audios/sample4/CSMTFNet.wav'], // Sample 4
-    ['static/audios/sample5/ambisonics.wav','static/audios/sample5/gt.wav', 'static/audios/sample5/MagLS.wav', 'static/audios/sample5/SCGAD.wav', 'static/audios/sample5/A2B.wav', 'static/audios/sample5/CSMTFNet.wav'], // Sample 5
+    ['static/audios/Ambisonics_2h/01.wav','static/audios/Groundtruth/01.wav', 'static/audios/MagLS/01.wav', 'static/audios/SCGAD/01.wav', 'static/audios/A2B/01.wav', 'static/audios/CSMTFNet/01.wav'], // Sample 1
+    ['static/audios/Ambisonics_2h/02.wav','static/audios/Groundtruth/02.wav', 'static/audios/MagLS/02.wav', 'static/audios/SCGAD/02.wav', 'static/audios/A2B/02.wav', 'static/audios/CSMTFNet/02.wav'],
+    ['static/audios/Ambisonics_2h/03.wav','static/audios/Groundtruth/03.wav', 'static/audios/MagLS/03.wav', 'static/audios/SCGAD/03.wav', 'static/audios/A2B/03.wav', 'static/audios/CSMTFNet/03.wav'],
+    ['static/audios/Ambisonics_2h/04.wav','static/audios/Groundtruth/04.wav', 'static/audios/MagLS/04.wav', 'static/audios/SCGAD/04.wav', 'static/audios/A2B/04.wav', 'static/audios/CSMTFNet/04.wav'],
+    ['static/audios/Ambisonics_2h/05.wav','static/audios/Groundtruth/05.wav', 'static/audios/MagLS/05.wav', 'static/audios/SCGAD/05.wav', 'static/audios/A2B/05.wav', 'static/audios/CSMTFNet/05.wav']
   ];
 
   // Store the audio player and current model for each sample
