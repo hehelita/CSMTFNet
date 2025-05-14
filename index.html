@@ -81,7 +81,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Channel spatial mapping time-frequency network for ambisonic-to-binaural rendering</h1>
+            <h1 class="title is-1 publication-title">Channel spatial mapping time-frequency network for ambisonic-to-binaural audio rendering</h1>
                   <div class="is-size-5 publication-authors">
                           <!-- Paper authors -->
                     <span class="author-block" style="color: #077caa;">
@@ -108,7 +108,7 @@
                     <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span>
                   </div>
                   <div class="is-size-4 publication-authors">
-                    <span class="author-block"> Applied Acoustics</span>
+                    <span class="author-block"> Applied Intelligence</span>
 
                   </div>
 
@@ -133,21 +133,16 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Spatial audio provides listeners with an auditory experience that offers both spatial awareness and realism, 
-            and it has been widely applied in fields such as virtual reality (VR), augmented reality (AR), and other immersive technologies. 
-            Ambisonics is an important format of spatial audio, 
-            and ambisonic-to-binaural rendering has become a crucial technology for reproducing ambisonics on headphones. 
-            Traditional methods for ambisonic-to-binaural rendering suffer from numerical errors caused by HRTF truncation, 
-            and deep learning-based approaches have started to be explored. 
-            However, existing methods still struggle to effectively model interaural level difference and interaural time difference, 
-            leading to significant errors. 
-            To address this issue, we propose a deep learning-based channel spatial mapping time-frequency network for ambisonic-to-binaural rendering. 
-            Specifically, we analyze ambisonics in the time-frequency domain and introduce the differential spatial attention module, 
-            based on the self-attention mechanism, to preliminarily extract the spatial information contained in ambisonics. 
-            Additionally, to map the spatial information to binaural audio, 
-            we propose a spatial feature extraction module that uses a gated multilayer perceptron to learn spatial relationships between features 
-            and employ a channel spatial attention module to model the most important information in each channel. 
-            We also introduce a residual module to help the network extract richer time-frequency information. 
+            Spatial audio delivers immersive auditory experiences by conveying spatial awareness and realism, 
+            making it a key component in applications such as virtual reality (VR), augmented reality (AR), and other AI-driven interactive systems. 
+            Ambisonics, as a widely adopted spatial audio format, often requires ambisonic-to-binaural rendering for headphone playback. 
+            While traditional DSP-based rendering methods suffer from numerical artifacts due to HRTF truncation, 
+            recent deep learning approaches still face challenges in accurately modeling interaural time difference (ITD) and interaural level difference (ILD). 
+            To address this, we propose a deep learning-based channel spatial mapping time-frequency network for ambisonic-to-binaural rendering. 
+            Specifically, we analyze ambisonics in the time-frequency domain and 
+            introduce a differential spatial attention module to extract directional cues via self-attention. 
+            We further design a gated MLP-based spatial feature extraction module and a channel spatial attention mechanism to effectively capture and 
+            map spatial features to the binaural domain. 
             To validate the effectiveness of the proposed method, 
             we conduct quantitative and perceptual evaluations on the BTPAB dataset and compare it with other advanced methods. 
             The experimental results show that our method can accurately render binaural audio from ambisonics and achieves state-of-the-art (SOTA) performance 
