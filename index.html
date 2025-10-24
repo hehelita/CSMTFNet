@@ -138,11 +138,13 @@
 
       <!-- Warning Message -->
       <p style="text-align: center; margin-top: 15px; padding: 5px; 
-               border: 2px solid #ff9800; border-radius: 8px; 
-               background-color: #fff3e0; width: 50%; margin: 20px auto; display: block;
-               font-size: 1.2rem; font-weight: 600;">
-        ⚠️ Please use headphones to listen to these audios.
-      </p> 
+              border: 2px solid #ff9800; border-radius: 8px; 
+              background-color: #fff3e0; width: 70%; margin: 30px auto; display: block;
+              font-size: 1.2rem; font-weight: 600;">
+        ⚠️ Please use headphones to listen to these audios !<br>
+        While listening to these audios, focus on the spatial positioning of instruments and other elements.
+      </p>
+
       
       <!-- Sample 1 -->
       <div class="audio-group">
@@ -248,58 +250,43 @@
 
   // Store the audio player and current model for each sample
   var currentAudio = [0, 0, 0, 0, 0];  // Default to model 1 for each sample
-  var lastTime = [0, 0, 0, 0, 0];      // Store the last played time for each sample
+  //var lastTime = [0, 0, 0, 0, 0];      // Store the last played time for each sample
 
-  // Function to switch audio and resume from the last time for each sample
   function switchAudio(sampleIndex, modelIndex, buttonElement) {
     var audioPlayer = document.getElementById('audioPlayer' + (sampleIndex + 1));
     var audioSource = document.getElementById('audioSource' + (sampleIndex + 1));
 
-    // Save current playback time before switching
-    lastTime[sampleIndex] = audioPlayer.currentTime;
-
-    // Check if the new audio is the same as the current one, then don't switch
     if (modelIndex !== currentAudio[sampleIndex]) {
       currentAudio[sampleIndex] = modelIndex;
       audioSource.src = audioFiles[sampleIndex][modelIndex];
 
-      // Reload and start the new audio from the previous time
+      audioPlayer.pause();
       audioPlayer.load();
-      audioPlayer.currentTime = lastTime[sampleIndex];
 
-      // Ensure the audio is played when the source is changed
-      audioPlayer.play();
+      // 兼容性：等待元数据就绪后从 0s 开始播放
+      const startFromZero = () => {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+        audioPlayer.removeEventListener('loadedmetadata', startFromZero);
+      };
+      audioPlayer.addEventListener('loadedmetadata', startFromZero);
     }
 
-    // Update the button styles
-    // var buttons = document.querySelectorAll('.audio-controls button');
-    // buttons.forEach(function(button) {
-    //   button.classList.remove('active'); // Remove active class from all buttons
-    // });
-    resetButtonStates(sampleIndex); // Reset all button states to default
-    buttonElement.classList.add('active'); // Add active class to the clicked button
+    // 更新按钮样式
+    resetButtonStates(sampleIndex);
+    buttonElement.classList.add('active');
   }
 
-  // Function to reset all button states
+
+  // 
   function resetButtonStates(currentIndex) {
-    // For each sample group, reset the first button to be active and others to be inactive
     var allButtonGroups = document.querySelectorAll('.audio-controls');
-    allButtonGroups.forEach(function(group,index) {
-      if (index === currentIndex) {
-        var buttons = group.querySelectorAll('button');
-        buttons.forEach(function(button, index) {
+    allButtonGroups.forEach(function(group, index) {
+      var buttons = group.querySelectorAll('button');
+      buttons.forEach(function(button, i) {
         button.classList.remove('active');
+        if (index !== currentIndex && i === 0) button.classList.add('active');
       });
-      }
-      else {
-        var buttons = group.querySelectorAll('button');
-        buttons.forEach(function(button, index) {
-          button.classList.remove('active');
-          if (index === 0) {
-            button.classList.add('active'); // Set the first button to active
-          }
-        });
-      }
     });
   }
 
