@@ -68,6 +68,76 @@
         color: white;
     }
 
+    .comparison-layout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .comparison-card {
+      padding: 22px;
+      border-radius: 18px;
+      background: #f8faff;
+      border: 1px solid #e5ebf4;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      height: 100%;
+    }
+
+    .comparison-card h3 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .comparison-audio {
+      width: 100%;
+      margin: 0 auto 18px auto;
+      padding: 1px;
+      background-color: #f4f4f9;
+      border-radius: 24px;
+    }
+
+    .comparison-image-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .comparison-image-item {
+      background: white;
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid #e7ecf3;
+    }
+
+    .comparison-image-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .comparison-image-caption {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    @media screen and (max-width: 768px) {
+      .comparison-layout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-audio,
+      .comparison-image-grid {
+        max-width: 100%;
+      }
+    }
+
  </style>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -234,6 +304,85 @@
 
 
 
+    </div>
+  </div>
+</section>
+
+
+<!-- Qualitative Comparison Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title" style="text-align: center; font-size: 2.0rem; margin-bottom: 20px;">
+        Qualitative comparison
+      </h1>
+
+      <div style="max-width: 900px; margin: 0 auto 30px auto; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #4c7faf; border-radius: 8px; line-height: 1.8; font-size: 1.0rem; color: #333;">
+        <p style="margin-bottom: 12px;">We use one example to analyze the interaural level difference (ILD) and the spectrograms of the left and right channels. In the ILD plot, positive values indicate that the sound is stronger on the left side, while negative values indicate that the sound is stronger on the right side.</p>
+        
+        <p style="margin-bottom: 12px;">In this example, we can hear cymbal-like sounds alternating between the left and right sides. The ILD curve reflects these left-right energy changes. Compared with MagLS, the ILD of our method is closer to that of the Neumann KU 100 dummy-head recording.</p>
+        
+        <p>In each spectrogram, the upper and lower panels correspond to the left and right channels, respectively. Compared with MagLS, our method produces spectrograms that are more consistent with the Neumann KU 100 dummy-head recording.</p>
+      </div>
+
+      <div class="comparison-layout-grid">
+        <div class="comparison-card">
+          <h3>CSMTFNet (ours)</h3>
+          <div class="comparison-audio">
+            <audio controls style="width: 100%; border-radius: 8px;">
+              <source src="static/for_figure/05_CSMTFNet_3.5_8.5s.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="comparison-image-grid">
+            <div class="comparison-image-item">
+              <img src="static/for_figure/ILD_CSMTFNet.png" alt="ILD CSMTFNet">
+              <div class="comparison-image-caption">ILD</div>
+            </div>
+            <div class="comparison-image-item">
+              <img src="static/for_figure/spec_ours.png" alt="Spectrogram CSMTFNet">
+              <div class="comparison-image-caption">Spectrogram</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <h3>Groundtruth</h3>
+          <div class="comparison-audio">
+            <audio controls style="width: 100%; border-radius: 8px;">
+              <source src="static/for_figure/05_Groundtruth_3.5_8.5s.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="comparison-image-grid">
+            <div class="comparison-image-item">
+              <img src="static/for_figure/ILD_Groundtruth.png" alt="ILD Groundtruth">
+              <div class="comparison-image-caption">ILD</div>
+            </div>
+            <div class="comparison-image-item">
+              <img src="static/for_figure/spec_gt.png" alt="Spectrogram Groundtruth">
+              <div class="comparison-image-caption">Spectrogram</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <h3>MagLS (DSP-based Method)</h3>
+          <div class="comparison-audio">
+            <audio controls style="width: 100%; border-radius: 8px;">
+              <source src="static/for_figure/05_MagLS_3.5_8.5s.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="comparison-image-grid">
+            <div class="comparison-image-item">
+              <img src="static/for_figure/ILD_MagLS.png" alt="ILD MagLS">
+              <div class="comparison-image-caption">ILD</div>
+            </div>
+            <div class="comparison-image-item">
+              <img src="static/for_figure/spec_MagLS.png" alt="Spectrogram MagLS">
+              <div class="comparison-image-caption">Spectrogram</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
